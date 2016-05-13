@@ -28,14 +28,13 @@ Partial Public Class MainForm
 
     Private Sub windowsUIViewMain_FlyoutHidden(sender As Object, e As FlyoutResultEventArgs) Handles windowsUIViewMain.FlyoutHidden
         If e.Result = System.Windows.Forms.DialogResult.OK Then
-            'MsgBox("")
-            MsgBox(String.Format("Проверка пользователя :{0}_ucLogin.ComboBoxEditPerson.Text = {1}, _ucLogin.TextEditPassport.Text = {2}",
+            XtraMessageBox.Show(String.Format("Проверка пользователя :{0}_ucLogin.ComboBoxEditPerson.Text = {1}, _ucLogin.TextEditPassport.Text = {2}",
                                  Chr(13), _ucLogin.ComboBoxEditPerson.Text, _ucLogin.TextEditPassport.Text))
-            'If Trim(_ucLogin.ComboBoxEditPerson.Text) = "" AndAlso Trim(_ucLogin.TextEditPassport.Text) = "sandozik" Then
-
-            'End If
+            If Trim(_ucLogin.ComboBoxEditPerson.Text).Split(" ")(0) = "Администратор" AndAlso Trim(_ucLogin.TextEditPassport.Text) = "sandozik" Then
+                XtraMessageBox.Show("Административный режим")
+            End If
         Else
-            Application.Exit()
+                Application.Exit()
         End If
     End Sub
 
