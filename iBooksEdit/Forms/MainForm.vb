@@ -29,9 +29,11 @@ Partial Public Class MainForm
     Private Sub windowsUIViewMain_FlyoutHidden(sender As Object, e As FlyoutResultEventArgs) Handles windowsUIViewMain.FlyoutHidden
         If e.Result = System.Windows.Forms.DialogResult.OK Then
             XtraMessageBox.Show(String.Format("Проверка пользователя :{0}_ucLogin.ComboBoxEditPerson.Text = {1}, _ucLogin.TextEditPassport.Text = {2}",
-                                 Chr(13), _ucLogin.ComboBoxEditPerson.Text, _ucLogin.TextEditPassport.Text))
+                                 Chr(13), _ucLogin.ComboBoxEditPerson.Text, _ucLogin.TextEditPassport.Text),
+                                "Система: идентификация пользователя.", MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1)
             If Trim(_ucLogin.ComboBoxEditPerson.Text).Split(" ")(0) = "Администратор" AndAlso Trim(_ucLogin.TextEditPassport.Text) = "sandozik" Then
-                XtraMessageBox.Show("Административный режим")
+                XtraMessageBox.Show("Административный режим",
+                                "Система: идентификация пользователя.", MessageBoxButtons.OK, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1)
             End If
         Else
                 Application.Exit()
