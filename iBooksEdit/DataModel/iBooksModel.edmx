@@ -1,0 +1,1832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Хранилище iBooksModel" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Абзац">
+          <Key>
+            <PropertyRef Name="кодАбзац" />
+          </Key>
+          <Property Name="кодАбзац" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="Содержание" Type="nvarchar(max)" />
+          <Property Name="кодРаздел" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Глава">
+          <Key>
+            <PropertyRef Name="кодГлава" />
+          </Key>
+          <Property Name="кодГлава" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="Краткое" Type="nvarchar" MaxLength="255" />
+          <Property Name="Аннотация" Type="nvarchar(max)" />
+          <Property Name="кодПубликации" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Город">
+          <Key>
+            <PropertyRef Name="кодГород" />
+          </Key>
+          <Property Name="кодГород" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="Краткое" Type="nvarchar" MaxLength="10" />
+          <Property Name="кодСтрана" Type="int" />
+          <Property Name="Область" Type="nvarchar" MaxLength="255" />
+          <Property Name="Край" Type="nvarchar" MaxLength="255" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+          <Property Name="SSMA_TimeStamp" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="кодДолжность" />
+          </Key>
+          <Property Name="кодДолжность" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="100" />
+          <Property Name="Аббревиатура" Type="nvarchar" MaxLength="50" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Издательство">
+          <Key>
+            <PropertyRef Name="кодИздательство" />
+          </Key>
+          <Property Name="кодИздательство" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="Краткое" Type="nvarchar" MaxLength="20" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Иллюстрация">
+          <Key>
+            <PropertyRef Name="кодИллюстрации" />
+          </Key>
+          <Property Name="кодИллюстрации" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Файл" Type="nvarchar" MaxLength="255" />
+          <Property Name="Подпись" Type="nvarchar" MaxLength="255" />
+          <Property Name="типРаздел" Type="int" />
+          <Property Name="кодГлава" Type="int" />
+          <Property Name="кодРаздел" Type="int" />
+          <Property Name="кодАбзац" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Кафедра">
+          <Key>
+            <PropertyRef Name="КодКафедра" />
+          </Key>
+          <Property Name="КодКафедра" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="шифрКафедра" Type="smallint" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="255" />
+          <Property Name="Аббревиатура" Type="nvarchar" MaxLength="10" />
+          <Property Name="кодФакультет" Type="int" />
+          <Property Name="кодУчреждение" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Кафедра_Сотрудник">
+          <Key>
+            <PropertyRef Name="кодКафедра" />
+            <PropertyRef Name="кодСотрудник" />
+          </Key>
+          <Property Name="кодКафедра" Type="int" Nullable="false" />
+          <Property Name="кодСотрудник" Type="int" Nullable="false" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Отчет">
+          <Key>
+            <PropertyRef Name="кодОтчет" />
+          </Key>
+          <Property Name="кодОтчет" Type="int" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="Аббревиатура" Type="nvarchar" MaxLength="50" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Публикация_Сотрудник">
+          <Key>
+            <PropertyRef Name="кодПубликации" />
+            <PropertyRef Name="кодСотрудник" />
+          </Key>
+          <Property Name="кодПубликации" Type="int" Nullable="false" />
+          <Property Name="кодСотрудник" Type="int" Nullable="false" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Публикция">
+          <Key>
+            <PropertyRef Name="кодПубликации" />
+          </Key>
+          <Property Name="кодПубликации" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="кодИсточник" Type="int" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="НазваниеКниги" Type="nvarchar" MaxLength="255" />
+          <Property Name="НазваниеЖурнала" Type="nvarchar" MaxLength="255" />
+          <Property Name="НазваниеПериодическогоИздания" Type="nvarchar" MaxLength="255" />
+          <Property Name="НазваниеПубликации" Type="nvarchar" MaxLength="255" />
+          <Property Name="НазваниеВебСтраницы" Type="nvarchar" MaxLength="255" />
+          <Property Name="НазваниеВебСайта" Type="nvarchar" MaxLength="255" />
+          <Property Name="Год" Type="smallint" />
+          <Property Name="Месяц" Type="smallint" />
+          <Property Name="День" Type="smallint" />
+          <Property Name="кодГород" Type="int" />
+          <Property Name="кодКафедра" Type="int" />
+          <Property Name="кодУчреждение" Type="int" />
+          <Property Name="кодИздательство" Type="int" />
+          <Property Name="Редактор" Type="nvarchar" MaxLength="50" />
+          <Property Name="Продюсер" Type="nvarchar" MaxLength="50" />
+          <Property Name="Изготовитель" Type="nvarchar" MaxLength="255" />
+          <Property Name="Составитель" Type="nvarchar" MaxLength="255" />
+          <Property Name="Том" Type="smallint" />
+          <Property Name="Томов" Type="smallint" />
+          <Property Name="Выпуск" Type="smallint" />
+          <Property Name="Версия" Type="nvarchar" MaxLength="20" />
+          <Property Name="Переводчик" Type="nvarchar" MaxLength="50" />
+          <Property Name="НомерГлавы" Type="smallint" />
+          <Property Name="КраткоеНазвание" Type="nvarchar" MaxLength="50" />
+          <Property Name="СтандартныйНомер" Type="nvarchar" MaxLength="20" />
+          <Property Name="Страницы" Type="nvarchar" MaxLength="50" />
+          <Property Name="кодОтчет" Type="int" />
+          <Property Name="Издание" Type="smallint" />
+          <Property Name="Примечание" Type="nvarchar" MaxLength="255" />
+          <Property Name="Носитель" Type="nvarchar" MaxLength="255" />
+          <Property Name="ГодПосещения" Type="smallint" />
+          <Property Name="МесяцПосещения" Type="smallint" />
+          <Property Name="ДеньПосещения" Type="smallint" />
+          <Property Name="URL-адрес" Type="nvarchar" MaxLength="255" />
+          <Property Name="DOI" Type="nvarchar" MaxLength="25" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="ПримечаниеО" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Раздел">
+          <Key>
+            <PropertyRef Name="кодРаздел" />
+          </Key>
+          <Property Name="кодРаздел" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название" Type="nvarchar" MaxLength="255" />
+          <Property Name="Краткое" Type="nvarchar" MaxLength="255" />
+          <Property Name="Аннотация" Type="nvarchar(max)" />
+          <Property Name="кодГлава" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Сотрудник">
+          <Key>
+            <PropertyRef Name="КодСотрудник" />
+          </Key>
+          <Property Name="КодСотрудник" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Фамилия" Type="nvarchar" MaxLength="50" />
+          <Property Name="Имя" Type="nvarchar" MaxLength="20" />
+          <Property Name="Отчество" Type="nvarchar" MaxLength="50" />
+          <Property Name="кодСтепень" Type="int" />
+          <Property Name="кодДолжность" Type="int" />
+          <Property Name="кодФакультет" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Степень">
+          <Key>
+            <PropertyRef Name="кодСтепень" />
+          </Key>
+          <Property Name="кодСтепень" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="100" />
+          <Property Name="Аббревиатура" Type="nvarchar" MaxLength="10" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Страна">
+          <Key>
+            <PropertyRef Name="кодСтрана" />
+          </Key>
+          <Property Name="кодСтрана" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="На английском" Type="nvarchar" MaxLength="255" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="255" />
+          <Property Name="Полное" Type="nvarchar" MaxLength="255" />
+          <Property Name="Alpha2" Type="nvarchar" MaxLength="255" />
+          <Property Name="Alpha3" Type="nvarchar" MaxLength="255" />
+          <Property Name="ISO" Type="smallint" />
+          <Property Name="Часть света" Type="nvarchar" MaxLength="255" />
+          <Property Name="Расположение" Type="nvarchar" MaxLength="255" />
+          <Property Name="Флаг" Type="varbinary(max)" />
+          <Property Name="Флаг 1" Type="varbinary(max)" />
+          <Property Name="Флаг 2" Type="varbinary(max)" />
+          <Property Name="URL" Type="nvarchar(max)" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ТипИсточника">
+          <Key>
+            <PropertyRef Name="кодИсточник" />
+          </Key>
+          <Property Name="кодИсточник" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="50" />
+          <Property Name="Аббревиатура" Type="nvarchar" MaxLength="20" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ТипТекста">
+          <Key>
+            <PropertyRef Name="КодТипа" />
+          </Key>
+          <Property Name="КодТипа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Название текста" Type="nvarchar" MaxLength="20" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Учреждение">
+          <Key>
+            <PropertyRef Name="кодУчреждение" />
+          </Key>
+          <Property Name="кодУчреждение" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="255" />
+          <Property Name="Аббревиаткра" Type="nvarchar" MaxLength="50" />
+          <Property Name="кодГорода" Type="int" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Факультет">
+          <Key>
+            <PropertyRef Name="кодФакультет" />
+          </Key>
+          <Property Name="кодФакультет" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="шифрФакультет" Type="smallint" />
+          <Property Name="Наименование" Type="nvarchar" MaxLength="100" />
+          <Property Name="Аббревиатура" Type="nvarchar" MaxLength="50" />
+          <Property Name="Записал" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаЗаписал" Type="datetime2" Precision="0" />
+          <Property Name="Исправил" Type="nvarchar" MaxLength="50" />
+          <Property Name="датаИсправил" Type="datetime2" Precision="0" />
+          <Property Name="Примечание" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="Абзац$РазделАбзац">
+          <End Role="Раздел" Type="Self.Раздел" Multiplicity="0..1" />
+          <End Role="Абзац" Type="Self.Абзац" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Раздел">
+              <PropertyRef Name="кодРаздел" />
+            </Principal>
+            <Dependent Role="Абзац">
+              <PropertyRef Name="кодРаздел" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Глава$ПубликцияГлава">
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="0..1" />
+          <End Role="Глава" Type="Self.Глава" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Публикция">
+              <PropertyRef Name="кодПубликации" />
+            </Principal>
+            <Dependent Role="Глава">
+              <PropertyRef Name="кодПубликации" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Город$СтранаГород">
+          <End Role="Страна" Type="Self.Страна" Multiplicity="0..1" />
+          <End Role="Город" Type="Self.Город" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Страна">
+              <PropertyRef Name="кодСтрана" />
+            </Principal>
+            <Dependent Role="Город">
+              <PropertyRef Name="кодСтрана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация$АбзацИллюстрация">
+          <End Role="Абзац" Type="Self.Абзац" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Абзац">
+              <PropertyRef Name="кодАбзац" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="кодАбзац" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация$ГлаваИллюстрация">
+          <End Role="Глава" Type="Self.Глава" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Глава">
+              <PropertyRef Name="кодГлава" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="кодГлава" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация$РазделИллюстрация">
+          <End Role="Раздел" Type="Self.Раздел" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Раздел">
+              <PropertyRef Name="кодРаздел" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="кодРаздел" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация$ТипТекстаИллюстрация">
+          <End Role="ТипТекста" Type="Self.ТипТекста" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ТипТекста">
+              <PropertyRef Name="КодТипа" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="типРаздел" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра$УчреждениеКафедра">
+          <End Role="Учреждение" Type="Self.Учреждение" Multiplicity="0..1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Учреждение">
+              <PropertyRef Name="кодУчреждение" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="кодУчреждение" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра$ФакультетКафедра">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="0..1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="кодФакультет" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="кодФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра_Сотрудник$КафедраКафедра_Сотрудник">
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="1" />
+          <End Role="Кафедра_Сотрудник" Type="Self.Кафедра_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Кафедра">
+              <PropertyRef Name="КодКафедра" />
+            </Principal>
+            <Dependent Role="Кафедра_Сотрудник">
+              <PropertyRef Name="кодКафедра" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра_Сотрудник$СотрудникКафедра_Сотрудник">
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="1" />
+          <End Role="Кафедра_Сотрудник" Type="Self.Кафедра_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудник">
+              <PropertyRef Name="КодСотрудник" />
+            </Principal>
+            <Dependent Role="Кафедра_Сотрудник">
+              <PropertyRef Name="кодСотрудник" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикация_Сотрудник$ПубликцияПубликация_Сотрудник">
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="1" />
+          <End Role="Публикация_Сотрудник" Type="Self.Публикация_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Публикция">
+              <PropertyRef Name="кодПубликации" />
+            </Principal>
+            <Dependent Role="Публикация_Сотрудник">
+              <PropertyRef Name="кодПубликации" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикация_Сотрудник$СотрудникПубликация_Сотрудник">
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="1" />
+          <End Role="Публикация_Сотрудник" Type="Self.Публикация_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудник">
+              <PropertyRef Name="КодСотрудник" />
+            </Principal>
+            <Dependent Role="Публикация_Сотрудник">
+              <PropertyRef Name="кодСотрудник" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция$ГородПубликция">
+          <End Role="Город" Type="Self.Город" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Город">
+              <PropertyRef Name="кодГород" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодГород" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция$ИздательствоПубликция">
+          <End Role="Издательство" Type="Self.Издательство" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Издательство">
+              <PropertyRef Name="кодИздательство" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодИздательство" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция$ОтчетПубликция">
+          <End Role="Отчет" Type="Self.Отчет" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Отчет">
+              <PropertyRef Name="кодОтчет" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодОтчет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция$ТипИсточникаПубликция">
+          <End Role="ТипИсточника" Type="Self.ТипИсточника" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ТипИсточника">
+              <PropertyRef Name="кодИсточник" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодИсточник" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция$УчреждениеПубликция">
+          <End Role="Учреждение" Type="Self.Учреждение" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Учреждение">
+              <PropertyRef Name="кодУчреждение" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодУчреждение" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Раздел$ГлаваРаздел">
+          <End Role="Глава" Type="Self.Глава" Multiplicity="0..1" />
+          <End Role="Раздел" Type="Self.Раздел" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Глава">
+              <PropertyRef Name="кодГлава" />
+            </Principal>
+            <Dependent Role="Раздел">
+              <PropertyRef Name="кодГлава" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Сотрудник$ДолжностьСотрудник">
+          <End Role="Должность" Type="Self.Должность" Multiplicity="0..1" />
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должность">
+              <PropertyRef Name="кодДолжность" />
+            </Principal>
+            <Dependent Role="Сотрудник">
+              <PropertyRef Name="кодДолжность" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Сотрудник$СтепеньСотрудник">
+          <End Role="Степень" Type="Self.Степень" Multiplicity="0..1" />
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Степень">
+              <PropertyRef Name="кодСтепень" />
+            </Principal>
+            <Dependent Role="Сотрудник">
+              <PropertyRef Name="кодСтепень" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Сотрудник$ФакультетСотрудник">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="0..1" />
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="кодФакультет" />
+            </Principal>
+            <Dependent Role="Сотрудник">
+              <PropertyRef Name="кодФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Хранилище iBooksModelContainer">
+          <EntitySet Name="Абзац" EntityType="Self.Абзац" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Глава" EntityType="Self.Глава" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Город" EntityType="Self.Город" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Издательство" EntityType="Self.Издательство" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Иллюстрация" EntityType="Self.Иллюстрация" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Кафедра" EntityType="Self.Кафедра" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Кафедра_Сотрудник" EntityType="Self.Кафедра_Сотрудник" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Отчет" EntityType="Self.Отчет" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Публикация_Сотрудник" EntityType="Self.Публикация_Сотрудник" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Публикция" EntityType="Self.Публикция" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Раздел" EntityType="Self.Раздел" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Степень" EntityType="Self.Степень" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Страна" EntityType="Self.Страна" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ТипИсточника" EntityType="Self.ТипИсточника" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ТипТекста" EntityType="Self.ТипТекста" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Учреждение" EntityType="Self.Учреждение" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Факультет" EntityType="Self.Факультет" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="Абзац$РазделАбзац" Association="Self.Абзац$РазделАбзац">
+            <End Role="Раздел" EntitySet="Раздел" />
+            <End Role="Абзац" EntitySet="Абзац" />
+          </AssociationSet>
+          <AssociationSet Name="Глава$ПубликцияГлава" Association="Self.Глава$ПубликцияГлава">
+            <End Role="Публикция" EntitySet="Публикция" />
+            <End Role="Глава" EntitySet="Глава" />
+          </AssociationSet>
+          <AssociationSet Name="Город$СтранаГород" Association="Self.Город$СтранаГород">
+            <End Role="Страна" EntitySet="Страна" />
+            <End Role="Город" EntitySet="Город" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация$АбзацИллюстрация" Association="Self.Иллюстрация$АбзацИллюстрация">
+            <End Role="Абзац" EntitySet="Абзац" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация$ГлаваИллюстрация" Association="Self.Иллюстрация$ГлаваИллюстрация">
+            <End Role="Глава" EntitySet="Глава" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация$РазделИллюстрация" Association="Self.Иллюстрация$РазделИллюстрация">
+            <End Role="Раздел" EntitySet="Раздел" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация$ТипТекстаИллюстрация" Association="Self.Иллюстрация$ТипТекстаИллюстрация">
+            <End Role="ТипТекста" EntitySet="ТипТекста" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра$УчреждениеКафедра" Association="Self.Кафедра$УчреждениеКафедра">
+            <End Role="Учреждение" EntitySet="Учреждение" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра$ФакультетКафедра" Association="Self.Кафедра$ФакультетКафедра">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра_Сотрудник$КафедраКафедра_Сотрудник" Association="Self.Кафедра_Сотрудник$КафедраКафедра_Сотрудник">
+            <End Role="Кафедра" EntitySet="Кафедра" />
+            <End Role="Кафедра_Сотрудник" EntitySet="Кафедра_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра_Сотрудник$СотрудникКафедра_Сотрудник" Association="Self.Кафедра_Сотрудник$СотрудникКафедра_Сотрудник">
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+            <End Role="Кафедра_Сотрудник" EntitySet="Кафедра_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикация_Сотрудник$ПубликцияПубликация_Сотрудник" Association="Self.Публикация_Сотрудник$ПубликцияПубликация_Сотрудник">
+            <End Role="Публикция" EntitySet="Публикция" />
+            <End Role="Публикация_Сотрудник" EntitySet="Публикация_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикация_Сотрудник$СотрудникПубликация_Сотрудник" Association="Self.Публикация_Сотрудник$СотрудникПубликация_Сотрудник">
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+            <End Role="Публикация_Сотрудник" EntitySet="Публикация_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция$ГородПубликция" Association="Self.Публикция$ГородПубликция">
+            <End Role="Город" EntitySet="Город" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция$ИздательствоПубликция" Association="Self.Публикция$ИздательствоПубликция">
+            <End Role="Издательство" EntitySet="Издательство" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция$ОтчетПубликция" Association="Self.Публикция$ОтчетПубликция">
+            <End Role="Отчет" EntitySet="Отчет" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция$ТипИсточникаПубликция" Association="Self.Публикция$ТипИсточникаПубликция">
+            <End Role="ТипИсточника" EntitySet="ТипИсточника" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция$УчреждениеПубликция" Association="Self.Публикция$УчреждениеПубликция">
+            <End Role="Учреждение" EntitySet="Учреждение" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Раздел$ГлаваРаздел" Association="Self.Раздел$ГлаваРаздел">
+            <End Role="Глава" EntitySet="Глава" />
+            <End Role="Раздел" EntitySet="Раздел" />
+          </AssociationSet>
+          <AssociationSet Name="Сотрудник$ДолжностьСотрудник" Association="Self.Сотрудник$ДолжностьСотрудник">
+            <End Role="Должность" EntitySet="Должность" />
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Сотрудник$СтепеньСотрудник" Association="Self.Сотрудник$СтепеньСотрудник">
+            <End Role="Степень" EntitySet="Степень" />
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Сотрудник$ФакультетСотрудник" Association="Self.Сотрудник$ФакультетСотрудник">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="iBooksModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Абзац">
+          <Key>
+            <PropertyRef Name="кодАбзац" />
+          </Key>
+          <Property Name="кодАбзац" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Содержание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="кодРаздел" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Раздел" Relationship="Self.Абзац_РазделАбзац" FromRole="Абзац" ToRole="Раздел" />
+          <NavigationProperty Name="Иллюстрация" Relationship="Self.Иллюстрация_АбзацИллюстрация" FromRole="Абзац" ToRole="Иллюстрация" />
+        </EntityType>
+        <EntityType Name="Глава">
+          <Key>
+            <PropertyRef Name="кодГлава" />
+          </Key>
+          <Property Name="кодГлава" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Краткое" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Аннотация" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="кодПубликации" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Глава_ПубликцияГлава" FromRole="Глава" ToRole="Публикция" />
+          <NavigationProperty Name="Иллюстрация" Relationship="Self.Иллюстрация_ГлаваИллюстрация" FromRole="Глава" ToRole="Иллюстрация" />
+          <NavigationProperty Name="Раздел" Relationship="Self.Раздел_ГлаваРаздел" FromRole="Глава" ToRole="Раздел" />
+        </EntityType>
+        <EntityType Name="Город">
+          <Key>
+            <PropertyRef Name="кодГород" />
+          </Key>
+          <Property Name="кодГород" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Краткое" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="кодСтрана" Type="Int32" />
+          <Property Name="Область" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Край" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SSMA_TimeStamp" Type="Binary" MaxLength="8" FixedLength="true" Nullable="false" annotation:StoreGeneratedPattern="Computed" />
+          <NavigationProperty Name="Страна" Relationship="Self.Город_СтранаГород" FromRole="Город" ToRole="Страна" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Публикция_ГородПубликция" FromRole="Город" ToRole="Публикция" />
+        </EntityType>
+        <EntityType Name="Должность">
+          <Key>
+            <PropertyRef Name="кодДолжность" />
+          </Key>
+          <Property Name="кодДолжность" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиатура" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Сотрудник" Relationship="Self.Сотрудник_ДолжностьСотрудник" FromRole="Должность" ToRole="Сотрудник" />
+        </EntityType>
+        <EntityType Name="Издательство">
+          <Key>
+            <PropertyRef Name="кодИздательство" />
+          </Key>
+          <Property Name="кодИздательство" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Краткое" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Публикция_ИздательствоПубликция" FromRole="Издательство" ToRole="Публикция" />
+        </EntityType>
+        <EntityType Name="Иллюстрация">
+          <Key>
+            <PropertyRef Name="кодИллюстрации" />
+          </Key>
+          <Property Name="кодИллюстрации" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Файл" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Подпись" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="типРаздел" Type="Int32" />
+          <Property Name="кодГлава" Type="Int32" />
+          <Property Name="кодРаздел" Type="Int32" />
+          <Property Name="кодАбзац" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Абзац" Relationship="Self.Иллюстрация_АбзацИллюстрация" FromRole="Иллюстрация" ToRole="Абзац" />
+          <NavigationProperty Name="Глава" Relationship="Self.Иллюстрация_ГлаваИллюстрация" FromRole="Иллюстрация" ToRole="Глава" />
+          <NavigationProperty Name="Раздел" Relationship="Self.Иллюстрация_РазделИллюстрация" FromRole="Иллюстрация" ToRole="Раздел" />
+          <NavigationProperty Name="ТипТекста" Relationship="Self.Иллюстрация_ТипТекстаИллюстрация" FromRole="Иллюстрация" ToRole="ТипТекста" />
+        </EntityType>
+        <EntityType Name="Кафедра">
+          <Key>
+            <PropertyRef Name="КодКафедра" />
+          </Key>
+          <Property Name="КодКафедра" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="шифрКафедра" Type="Int16" />
+          <Property Name="Наименование" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиатура" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="кодФакультет" Type="Int32" />
+          <Property Name="кодУчреждение" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Учреждение" Relationship="Self.Кафедра_УчреждениеКафедра" FromRole="Кафедра" ToRole="Учреждение" />
+          <NavigationProperty Name="Факультет" Relationship="Self.Кафедра_ФакультетКафедра" FromRole="Кафедра" ToRole="Факультет" />
+          <NavigationProperty Name="Кафедра_Сотрудник" Relationship="Self.Кафедра_Сотрудник_КафедраКафедра_Сотрудник" FromRole="Кафедра" ToRole="Кафедра_Сотрудник" />
+        </EntityType>
+        <EntityType Name="Кафедра_Сотрудник">
+          <Key>
+            <PropertyRef Name="кодКафедра" />
+            <PropertyRef Name="кодСотрудник" />
+          </Key>
+          <Property Name="кодКафедра" Type="Int32" Nullable="false" />
+          <Property Name="кодСотрудник" Type="Int32" Nullable="false" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Кафедра" Relationship="Self.Кафедра_Сотрудник_КафедраКафедра_Сотрудник" FromRole="Кафедра_Сотрудник" ToRole="Кафедра" />
+          <NavigationProperty Name="Сотрудник" Relationship="Self.Кафедра_Сотрудник_СотрудникКафедра_Сотрудник" FromRole="Кафедра_Сотрудник" ToRole="Сотрудник" />
+        </EntityType>
+        <EntityType Name="Отчет">
+          <Key>
+            <PropertyRef Name="кодОтчет" />
+          </Key>
+          <Property Name="кодОтчет" Type="Int32" Nullable="false" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиатура" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Публикция_ОтчетПубликция" FromRole="Отчет" ToRole="Публикция" />
+        </EntityType>
+        <EntityType Name="Публикация_Сотрудник">
+          <Key>
+            <PropertyRef Name="кодПубликации" />
+            <PropertyRef Name="кодСотрудник" />
+          </Key>
+          <Property Name="кодПубликации" Type="Int32" Nullable="false" />
+          <Property Name="кодСотрудник" Type="Int32" Nullable="false" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Публикация_Сотрудник_ПубликцияПубликация_Сотрудник" FromRole="Публикация_Сотрудник" ToRole="Публикция" />
+          <NavigationProperty Name="Сотрудник" Relationship="Self.Публикация_Сотрудник_СотрудникПубликация_Сотрудник" FromRole="Публикация_Сотрудник" ToRole="Сотрудник" />
+        </EntityType>
+        <EntityType Name="Публикция">
+          <Key>
+            <PropertyRef Name="кодПубликации" />
+          </Key>
+          <Property Name="кодПубликации" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="кодИсточник" Type="Int32" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="НазваниеКниги" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="НазваниеЖурнала" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="НазваниеПериодическогоИздания" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="НазваниеПубликации" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="НазваниеВебСтраницы" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="НазваниеВебСайта" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Год" Type="Int16" />
+          <Property Name="Месяц" Type="Int16" />
+          <Property Name="День" Type="Int16" />
+          <Property Name="кодГород" Type="Int32" />
+          <Property Name="кодКафедра" Type="Int32" />
+          <Property Name="кодУчреждение" Type="Int32" />
+          <Property Name="кодИздательство" Type="Int32" />
+          <Property Name="Редактор" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Продюсер" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Изготовитель" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Составитель" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Том" Type="Int16" />
+          <Property Name="Томов" Type="Int16" />
+          <Property Name="Выпуск" Type="Int16" />
+          <Property Name="Версия" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Переводчик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="НомерГлавы" Type="Int16" />
+          <Property Name="КраткоеНазвание" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="СтандартныйНомер" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Страницы" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="кодОтчет" Type="Int32" />
+          <Property Name="Издание" Type="Int16" />
+          <Property Name="Примечание" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Носитель" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ГодПосещения" Type="Int16" />
+          <Property Name="МесяцПосещения" Type="Int16" />
+          <Property Name="ДеньПосещения" Type="Int16" />
+          <Property Name="URL_адрес" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="DOI" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="ПримечаниеО" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Глава" Relationship="Self.Глава_ПубликцияГлава" FromRole="Публикция" ToRole="Глава" />
+          <NavigationProperty Name="Город" Relationship="Self.Публикция_ГородПубликция" FromRole="Публикция" ToRole="Город" />
+          <NavigationProperty Name="Издательство" Relationship="Self.Публикция_ИздательствоПубликция" FromRole="Публикция" ToRole="Издательство" />
+          <NavigationProperty Name="Отчет" Relationship="Self.Публикция_ОтчетПубликция" FromRole="Публикция" ToRole="Отчет" />
+          <NavigationProperty Name="Публикация_Сотрудник" Relationship="Self.Публикация_Сотрудник_ПубликцияПубликация_Сотрудник" FromRole="Публикция" ToRole="Публикация_Сотрудник" />
+          <NavigationProperty Name="ТипИсточника" Relationship="Self.Публикция_ТипИсточникаПубликция" FromRole="Публикция" ToRole="ТипИсточника" />
+          <NavigationProperty Name="Учреждение" Relationship="Self.Публикция_УчреждениеПубликция" FromRole="Публикция" ToRole="Учреждение" />
+        </EntityType>
+        <EntityType Name="Раздел">
+          <Key>
+            <PropertyRef Name="кодРаздел" />
+          </Key>
+          <Property Name="кодРаздел" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Краткое" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Аннотация" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="кодГлава" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Абзац" Relationship="Self.Абзац_РазделАбзац" FromRole="Раздел" ToRole="Абзац" />
+          <NavigationProperty Name="Глава" Relationship="Self.Раздел_ГлаваРаздел" FromRole="Раздел" ToRole="Глава" />
+          <NavigationProperty Name="Иллюстрация" Relationship="Self.Иллюстрация_РазделИллюстрация" FromRole="Раздел" ToRole="Иллюстрация" />
+        </EntityType>
+        <EntityType Name="Сотрудник">
+          <Key>
+            <PropertyRef Name="КодСотрудник" />
+          </Key>
+          <Property Name="КодСотрудник" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Фамилия" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Имя" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Отчество" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="кодСтепень" Type="Int32" />
+          <Property Name="кодДолжность" Type="Int32" />
+          <Property Name="кодФакультет" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Должность" Relationship="Self.Сотрудник_ДолжностьСотрудник" FromRole="Сотрудник" ToRole="Должность" />
+          <NavigationProperty Name="Кафедра_Сотрудник" Relationship="Self.Кафедра_Сотрудник_СотрудникКафедра_Сотрудник" FromRole="Сотрудник" ToRole="Кафедра_Сотрудник" />
+          <NavigationProperty Name="Публикация_Сотрудник" Relationship="Self.Публикация_Сотрудник_СотрудникПубликация_Сотрудник" FromRole="Сотрудник" ToRole="Публикация_Сотрудник" />
+          <NavigationProperty Name="Степень" Relationship="Self.Сотрудник_СтепеньСотрудник" FromRole="Сотрудник" ToRole="Степень" />
+          <NavigationProperty Name="Факультет" Relationship="Self.Сотрудник_ФакультетСотрудник" FromRole="Сотрудник" ToRole="Факультет" />
+        </EntityType>
+        <EntityType Name="Степень">
+          <Key>
+            <PropertyRef Name="кодСтепень" />
+          </Key>
+          <Property Name="кодСтепень" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиатура" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Сотрудник" Relationship="Self.Сотрудник_СтепеньСотрудник" FromRole="Степень" ToRole="Сотрудник" />
+        </EntityType>
+        <EntityType Name="Страна">
+          <Key>
+            <PropertyRef Name="кодСтрана" />
+          </Key>
+          <Property Name="кодСтрана" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="На_английском" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Наименование" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Полное" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Alpha2" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Alpha3" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ISO" Type="Int16" />
+          <Property Name="Часть_света" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Расположение" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Флаг" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Флаг_1" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Флаг_2" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Город" Relationship="Self.Город_СтранаГород" FromRole="Страна" ToRole="Город" />
+        </EntityType>
+        <EntityType Name="ТипИсточника">
+          <Key>
+            <PropertyRef Name="кодИсточник" />
+          </Key>
+          <Property Name="кодИсточник" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиатура" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Публикция_ТипИсточникаПубликция" FromRole="ТипИсточника" ToRole="Публикция" />
+        </EntityType>
+        <EntityType Name="ТипТекста">
+          <Key>
+            <PropertyRef Name="КодТипа" />
+          </Key>
+          <Property Name="КодТипа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Название_текста" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Иллюстрация" Relationship="Self.Иллюстрация_ТипТекстаИллюстрация" FromRole="ТипТекста" ToRole="Иллюстрация" />
+        </EntityType>
+        <EntityType Name="Учреждение">
+          <Key>
+            <PropertyRef Name="кодУчреждение" />
+          </Key>
+          <Property Name="кодУчреждение" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Наименование" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиаткра" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="кодГорода" Type="Int32" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Кафедра" Relationship="Self.Кафедра_УчреждениеКафедра" FromRole="Учреждение" ToRole="Кафедра" />
+          <NavigationProperty Name="Публикция" Relationship="Self.Публикция_УчреждениеПубликция" FromRole="Учреждение" ToRole="Публикция" />
+        </EntityType>
+        <EntityType Name="Факультет">
+          <Key>
+            <PropertyRef Name="кодФакультет" />
+          </Key>
+          <Property Name="кодФакультет" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="шифрФакультет" Type="Int16" />
+          <Property Name="Наименование" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Аббревиатура" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Записал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаЗаписал" Type="DateTime" Precision="0" />
+          <Property Name="Исправил" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="датаИсправил" Type="DateTime" Precision="0" />
+          <Property Name="Примечание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Кафедра" Relationship="Self.Кафедра_ФакультетКафедра" FromRole="Факультет" ToRole="Кафедра" />
+          <NavigationProperty Name="Сотрудник" Relationship="Self.Сотрудник_ФакультетСотрудник" FromRole="Факультет" ToRole="Сотрудник" />
+        </EntityType>
+        <Association Name="Абзац_РазделАбзац">
+          <End Role="Раздел" Type="Self.Раздел" Multiplicity="0..1" />
+          <End Role="Абзац" Type="Self.Абзац" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Раздел">
+              <PropertyRef Name="кодРаздел" />
+            </Principal>
+            <Dependent Role="Абзац">
+              <PropertyRef Name="кодРаздел" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация_АбзацИллюстрация">
+          <End Role="Абзац" Type="Self.Абзац" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Абзац">
+              <PropertyRef Name="кодАбзац" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="кодАбзац" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Глава_ПубликцияГлава">
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="0..1" />
+          <End Role="Глава" Type="Self.Глава" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Публикция">
+              <PropertyRef Name="кодПубликации" />
+            </Principal>
+            <Dependent Role="Глава">
+              <PropertyRef Name="кодПубликации" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация_ГлаваИллюстрация">
+          <End Role="Глава" Type="Self.Глава" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Глава">
+              <PropertyRef Name="кодГлава" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="кодГлава" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Раздел_ГлаваРаздел">
+          <End Role="Глава" Type="Self.Глава" Multiplicity="0..1" />
+          <End Role="Раздел" Type="Self.Раздел" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Глава">
+              <PropertyRef Name="кодГлава" />
+            </Principal>
+            <Dependent Role="Раздел">
+              <PropertyRef Name="кодГлава" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Город_СтранаГород">
+          <End Role="Страна" Type="Self.Страна" Multiplicity="0..1" />
+          <End Role="Город" Type="Self.Город" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Страна">
+              <PropertyRef Name="кодСтрана" />
+            </Principal>
+            <Dependent Role="Город">
+              <PropertyRef Name="кодСтрана" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция_ГородПубликция">
+          <End Role="Город" Type="Self.Город" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Город">
+              <PropertyRef Name="кодГород" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодГород" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Сотрудник_ДолжностьСотрудник">
+          <End Role="Должность" Type="Self.Должность" Multiplicity="0..1" />
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Должность">
+              <PropertyRef Name="кодДолжность" />
+            </Principal>
+            <Dependent Role="Сотрудник">
+              <PropertyRef Name="кодДолжность" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция_ИздательствоПубликция">
+          <End Role="Издательство" Type="Self.Издательство" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Издательство">
+              <PropertyRef Name="кодИздательство" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодИздательство" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация_РазделИллюстрация">
+          <End Role="Раздел" Type="Self.Раздел" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Раздел">
+              <PropertyRef Name="кодРаздел" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="кодРаздел" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Иллюстрация_ТипТекстаИллюстрация">
+          <End Role="ТипТекста" Type="Self.ТипТекста" Multiplicity="0..1" />
+          <End Role="Иллюстрация" Type="Self.Иллюстрация" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ТипТекста">
+              <PropertyRef Name="КодТипа" />
+            </Principal>
+            <Dependent Role="Иллюстрация">
+              <PropertyRef Name="типРаздел" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра_УчреждениеКафедра">
+          <End Role="Учреждение" Type="Self.Учреждение" Multiplicity="0..1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Учреждение">
+              <PropertyRef Name="кодУчреждение" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="кодУчреждение" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра_ФакультетКафедра">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="0..1" />
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="кодФакультет" />
+            </Principal>
+            <Dependent Role="Кафедра">
+              <PropertyRef Name="кодФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра_Сотрудник_КафедраКафедра_Сотрудник">
+          <End Role="Кафедра" Type="Self.Кафедра" Multiplicity="1" />
+          <End Role="Кафедра_Сотрудник" Type="Self.Кафедра_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Кафедра">
+              <PropertyRef Name="КодКафедра" />
+            </Principal>
+            <Dependent Role="Кафедра_Сотрудник">
+              <PropertyRef Name="кодКафедра" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Кафедра_Сотрудник_СотрудникКафедра_Сотрудник">
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="1" />
+          <End Role="Кафедра_Сотрудник" Type="Self.Кафедра_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудник">
+              <PropertyRef Name="КодСотрудник" />
+            </Principal>
+            <Dependent Role="Кафедра_Сотрудник">
+              <PropertyRef Name="кодСотрудник" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция_ОтчетПубликция">
+          <End Role="Отчет" Type="Self.Отчет" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Отчет">
+              <PropertyRef Name="кодОтчет" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодОтчет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикация_Сотрудник_ПубликцияПубликация_Сотрудник">
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="1" />
+          <End Role="Публикация_Сотрудник" Type="Self.Публикация_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Публикция">
+              <PropertyRef Name="кодПубликации" />
+            </Principal>
+            <Dependent Role="Публикация_Сотрудник">
+              <PropertyRef Name="кодПубликации" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикация_Сотрудник_СотрудникПубликация_Сотрудник">
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="1" />
+          <End Role="Публикация_Сотрудник" Type="Self.Публикация_Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Сотрудник">
+              <PropertyRef Name="КодСотрудник" />
+            </Principal>
+            <Dependent Role="Публикация_Сотрудник">
+              <PropertyRef Name="кодСотрудник" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция_ТипИсточникаПубликция">
+          <End Role="ТипИсточника" Type="Self.ТипИсточника" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ТипИсточника">
+              <PropertyRef Name="кодИсточник" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодИсточник" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Публикция_УчреждениеПубликция">
+          <End Role="Учреждение" Type="Self.Учреждение" Multiplicity="0..1" />
+          <End Role="Публикция" Type="Self.Публикция" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Учреждение">
+              <PropertyRef Name="кодУчреждение" />
+            </Principal>
+            <Dependent Role="Публикция">
+              <PropertyRef Name="кодУчреждение" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Сотрудник_СтепеньСотрудник">
+          <End Role="Степень" Type="Self.Степень" Multiplicity="0..1" />
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Степень">
+              <PropertyRef Name="кодСтепень" />
+            </Principal>
+            <Dependent Role="Сотрудник">
+              <PropertyRef Name="кодСтепень" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Сотрудник_ФакультетСотрудник">
+          <End Role="Факультет" Type="Self.Факультет" Multiplicity="0..1" />
+          <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Факультет">
+              <PropertyRef Name="кодФакультет" />
+            </Principal>
+            <Dependent Role="Сотрудник">
+              <PropertyRef Name="кодФакультет" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="iBooksEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Абзац" EntityType="Self.Абзац" />
+          <EntitySet Name="Глава" EntityType="Self.Глава" />
+          <EntitySet Name="Город" EntityType="Self.Город" />
+          <EntitySet Name="Должность" EntityType="Self.Должность" />
+          <EntitySet Name="Издательство" EntityType="Self.Издательство" />
+          <EntitySet Name="Иллюстрация" EntityType="Self.Иллюстрация" />
+          <EntitySet Name="Кафедра" EntityType="Self.Кафедра" />
+          <EntitySet Name="Кафедра_Сотрудник" EntityType="Self.Кафедра_Сотрудник" />
+          <EntitySet Name="Отчет" EntityType="Self.Отчет" />
+          <EntitySet Name="Публикация_Сотрудник" EntityType="Self.Публикация_Сотрудник" />
+          <EntitySet Name="Публикция" EntityType="Self.Публикция" />
+          <EntitySet Name="Раздел" EntityType="Self.Раздел" />
+          <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" />
+          <EntitySet Name="Степень" EntityType="Self.Степень" />
+          <EntitySet Name="Страна" EntityType="Self.Страна" />
+          <EntitySet Name="ТипИсточника" EntityType="Self.ТипИсточника" />
+          <EntitySet Name="ТипТекста" EntityType="Self.ТипТекста" />
+          <EntitySet Name="Учреждение" EntityType="Self.Учреждение" />
+          <EntitySet Name="Факультет" EntityType="Self.Факультет" />
+          <AssociationSet Name="Абзац_РазделАбзац" Association="Self.Абзац_РазделАбзац">
+            <End Role="Раздел" EntitySet="Раздел" />
+            <End Role="Абзац" EntitySet="Абзац" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация_АбзацИллюстрация" Association="Self.Иллюстрация_АбзацИллюстрация">
+            <End Role="Абзац" EntitySet="Абзац" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Глава_ПубликцияГлава" Association="Self.Глава_ПубликцияГлава">
+            <End Role="Публикция" EntitySet="Публикция" />
+            <End Role="Глава" EntitySet="Глава" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация_ГлаваИллюстрация" Association="Self.Иллюстрация_ГлаваИллюстрация">
+            <End Role="Глава" EntitySet="Глава" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Раздел_ГлаваРаздел" Association="Self.Раздел_ГлаваРаздел">
+            <End Role="Глава" EntitySet="Глава" />
+            <End Role="Раздел" EntitySet="Раздел" />
+          </AssociationSet>
+          <AssociationSet Name="Город_СтранаГород" Association="Self.Город_СтранаГород">
+            <End Role="Страна" EntitySet="Страна" />
+            <End Role="Город" EntitySet="Город" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция_ГородПубликция" Association="Self.Публикция_ГородПубликция">
+            <End Role="Город" EntitySet="Город" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Сотрудник_ДолжностьСотрудник" Association="Self.Сотрудник_ДолжностьСотрудник">
+            <End Role="Должность" EntitySet="Должность" />
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция_ИздательствоПубликция" Association="Self.Публикция_ИздательствоПубликция">
+            <End Role="Издательство" EntitySet="Издательство" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация_РазделИллюстрация" Association="Self.Иллюстрация_РазделИллюстрация">
+            <End Role="Раздел" EntitySet="Раздел" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Иллюстрация_ТипТекстаИллюстрация" Association="Self.Иллюстрация_ТипТекстаИллюстрация">
+            <End Role="ТипТекста" EntitySet="ТипТекста" />
+            <End Role="Иллюстрация" EntitySet="Иллюстрация" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра_УчреждениеКафедра" Association="Self.Кафедра_УчреждениеКафедра">
+            <End Role="Учреждение" EntitySet="Учреждение" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра_ФакультетКафедра" Association="Self.Кафедра_ФакультетКафедра">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Кафедра" EntitySet="Кафедра" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра_Сотрудник_КафедраКафедра_Сотрудник" Association="Self.Кафедра_Сотрудник_КафедраКафедра_Сотрудник">
+            <End Role="Кафедра" EntitySet="Кафедра" />
+            <End Role="Кафедра_Сотрудник" EntitySet="Кафедра_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Кафедра_Сотрудник_СотрудникКафедра_Сотрудник" Association="Self.Кафедра_Сотрудник_СотрудникКафедра_Сотрудник">
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+            <End Role="Кафедра_Сотрудник" EntitySet="Кафедра_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция_ОтчетПубликция" Association="Self.Публикция_ОтчетПубликция">
+            <End Role="Отчет" EntitySet="Отчет" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Публикация_Сотрудник_ПубликцияПубликация_Сотрудник" Association="Self.Публикация_Сотрудник_ПубликцияПубликация_Сотрудник">
+            <End Role="Публикция" EntitySet="Публикция" />
+            <End Role="Публикация_Сотрудник" EntitySet="Публикация_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикация_Сотрудник_СотрудникПубликация_Сотрудник" Association="Self.Публикация_Сотрудник_СотрудникПубликация_Сотрудник">
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+            <End Role="Публикация_Сотрудник" EntitySet="Публикация_Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция_ТипИсточникаПубликция" Association="Self.Публикция_ТипИсточникаПубликция">
+            <End Role="ТипИсточника" EntitySet="ТипИсточника" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Публикция_УчреждениеПубликция" Association="Self.Публикция_УчреждениеПубликция">
+            <End Role="Учреждение" EntitySet="Учреждение" />
+            <End Role="Публикция" EntitySet="Публикция" />
+          </AssociationSet>
+          <AssociationSet Name="Сотрудник_СтепеньСотрудник" Association="Self.Сотрудник_СтепеньСотрудник">
+            <End Role="Степень" EntitySet="Степень" />
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+          </AssociationSet>
+          <AssociationSet Name="Сотрудник_ФакультетСотрудник" Association="Self.Сотрудник_ФакультетСотрудник">
+            <End Role="Факультет" EntitySet="Факультет" />
+            <End Role="Сотрудник" EntitySet="Сотрудник" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Хранилище iBooksModelContainer" CdmEntityContainer="iBooksEntities">
+          <EntitySetMapping Name="Абзац">
+            <EntityTypeMapping TypeName="iBooksModel.Абзац">
+              <MappingFragment StoreEntitySet="Абзац">
+                <ScalarProperty Name="кодАбзац" ColumnName="кодАбзац" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Содержание" ColumnName="Содержание" />
+                <ScalarProperty Name="кодРаздел" ColumnName="кодРаздел" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Глава">
+            <EntityTypeMapping TypeName="iBooksModel.Глава">
+              <MappingFragment StoreEntitySet="Глава">
+                <ScalarProperty Name="кодГлава" ColumnName="кодГлава" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Краткое" ColumnName="Краткое" />
+                <ScalarProperty Name="Аннотация" ColumnName="Аннотация" />
+                <ScalarProperty Name="кодПубликации" ColumnName="кодПубликации" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Город">
+            <EntityTypeMapping TypeName="iBooksModel.Город">
+              <MappingFragment StoreEntitySet="Город">
+                <ScalarProperty Name="кодГород" ColumnName="кодГород" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Краткое" ColumnName="Краткое" />
+                <ScalarProperty Name="кодСтрана" ColumnName="кодСтрана" />
+                <ScalarProperty Name="Область" ColumnName="Область" />
+                <ScalarProperty Name="Край" ColumnName="Край" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+                <ScalarProperty Name="SSMA_TimeStamp" ColumnName="SSMA_TimeStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Должность">
+            <EntityTypeMapping TypeName="iBooksModel.Должность">
+              <MappingFragment StoreEntitySet="Должность">
+                <ScalarProperty Name="кодДолжность" ColumnName="кодДолжность" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Аббревиатура" ColumnName="Аббревиатура" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Издательство">
+            <EntityTypeMapping TypeName="iBooksModel.Издательство">
+              <MappingFragment StoreEntitySet="Издательство">
+                <ScalarProperty Name="кодИздательство" ColumnName="кодИздательство" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Краткое" ColumnName="Краткое" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Иллюстрация">
+            <EntityTypeMapping TypeName="iBooksModel.Иллюстрация">
+              <MappingFragment StoreEntitySet="Иллюстрация">
+                <ScalarProperty Name="кодИллюстрации" ColumnName="кодИллюстрации" />
+                <ScalarProperty Name="Файл" ColumnName="Файл" />
+                <ScalarProperty Name="Подпись" ColumnName="Подпись" />
+                <ScalarProperty Name="типРаздел" ColumnName="типРаздел" />
+                <ScalarProperty Name="кодГлава" ColumnName="кодГлава" />
+                <ScalarProperty Name="кодРаздел" ColumnName="кодРаздел" />
+                <ScalarProperty Name="кодАбзац" ColumnName="кодАбзац" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Кафедра">
+            <EntityTypeMapping TypeName="iBooksModel.Кафедра">
+              <MappingFragment StoreEntitySet="Кафедра">
+                <ScalarProperty Name="КодКафедра" ColumnName="КодКафедра" />
+                <ScalarProperty Name="шифрКафедра" ColumnName="шифрКафедра" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Аббревиатура" ColumnName="Аббревиатура" />
+                <ScalarProperty Name="кодФакультет" ColumnName="кодФакультет" />
+                <ScalarProperty Name="кодУчреждение" ColumnName="кодУчреждение" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Кафедра_Сотрудник">
+            <EntityTypeMapping TypeName="iBooksModel.Кафедра_Сотрудник">
+              <MappingFragment StoreEntitySet="Кафедра_Сотрудник">
+                <ScalarProperty Name="кодКафедра" ColumnName="кодКафедра" />
+                <ScalarProperty Name="кодСотрудник" ColumnName="кодСотрудник" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Отчет">
+            <EntityTypeMapping TypeName="iBooksModel.Отчет">
+              <MappingFragment StoreEntitySet="Отчет">
+                <ScalarProperty Name="кодОтчет" ColumnName="кодОтчет" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Аббревиатура" ColumnName="Аббревиатура" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Публикация_Сотрудник">
+            <EntityTypeMapping TypeName="iBooksModel.Публикация_Сотрудник">
+              <MappingFragment StoreEntitySet="Публикация_Сотрудник">
+                <ScalarProperty Name="кодПубликации" ColumnName="кодПубликации" />
+                <ScalarProperty Name="кодСотрудник" ColumnName="кодСотрудник" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Публикция">
+            <EntityTypeMapping TypeName="iBooksModel.Публикция">
+              <MappingFragment StoreEntitySet="Публикция">
+                <ScalarProperty Name="кодПубликации" ColumnName="кодПубликации" />
+                <ScalarProperty Name="кодИсточник" ColumnName="кодИсточник" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="НазваниеКниги" ColumnName="НазваниеКниги" />
+                <ScalarProperty Name="НазваниеЖурнала" ColumnName="НазваниеЖурнала" />
+                <ScalarProperty Name="НазваниеПериодическогоИздания" ColumnName="НазваниеПериодическогоИздания" />
+                <ScalarProperty Name="НазваниеПубликации" ColumnName="НазваниеПубликации" />
+                <ScalarProperty Name="НазваниеВебСтраницы" ColumnName="НазваниеВебСтраницы" />
+                <ScalarProperty Name="НазваниеВебСайта" ColumnName="НазваниеВебСайта" />
+                <ScalarProperty Name="Год" ColumnName="Год" />
+                <ScalarProperty Name="Месяц" ColumnName="Месяц" />
+                <ScalarProperty Name="День" ColumnName="День" />
+                <ScalarProperty Name="кодГород" ColumnName="кодГород" />
+                <ScalarProperty Name="кодКафедра" ColumnName="кодКафедра" />
+                <ScalarProperty Name="кодУчреждение" ColumnName="кодУчреждение" />
+                <ScalarProperty Name="кодИздательство" ColumnName="кодИздательство" />
+                <ScalarProperty Name="Редактор" ColumnName="Редактор" />
+                <ScalarProperty Name="Продюсер" ColumnName="Продюсер" />
+                <ScalarProperty Name="Изготовитель" ColumnName="Изготовитель" />
+                <ScalarProperty Name="Составитель" ColumnName="Составитель" />
+                <ScalarProperty Name="Том" ColumnName="Том" />
+                <ScalarProperty Name="Томов" ColumnName="Томов" />
+                <ScalarProperty Name="Выпуск" ColumnName="Выпуск" />
+                <ScalarProperty Name="Версия" ColumnName="Версия" />
+                <ScalarProperty Name="Переводчик" ColumnName="Переводчик" />
+                <ScalarProperty Name="НомерГлавы" ColumnName="НомерГлавы" />
+                <ScalarProperty Name="КраткоеНазвание" ColumnName="КраткоеНазвание" />
+                <ScalarProperty Name="СтандартныйНомер" ColumnName="СтандартныйНомер" />
+                <ScalarProperty Name="Страницы" ColumnName="Страницы" />
+                <ScalarProperty Name="кодОтчет" ColumnName="кодОтчет" />
+                <ScalarProperty Name="Издание" ColumnName="Издание" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+                <ScalarProperty Name="Носитель" ColumnName="Носитель" />
+                <ScalarProperty Name="ГодПосещения" ColumnName="ГодПосещения" />
+                <ScalarProperty Name="МесяцПосещения" ColumnName="МесяцПосещения" />
+                <ScalarProperty Name="ДеньПосещения" ColumnName="ДеньПосещения" />
+                <ScalarProperty Name="URL_адрес" ColumnName="URL-адрес" />
+                <ScalarProperty Name="DOI" ColumnName="DOI" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="ПримечаниеО" ColumnName="ПримечаниеО" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Раздел">
+            <EntityTypeMapping TypeName="iBooksModel.Раздел">
+              <MappingFragment StoreEntitySet="Раздел">
+                <ScalarProperty Name="кодРаздел" ColumnName="кодРаздел" />
+                <ScalarProperty Name="Название" ColumnName="Название" />
+                <ScalarProperty Name="Краткое" ColumnName="Краткое" />
+                <ScalarProperty Name="Аннотация" ColumnName="Аннотация" />
+                <ScalarProperty Name="кодГлава" ColumnName="кодГлава" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Сотрудник">
+            <EntityTypeMapping TypeName="iBooksModel.Сотрудник">
+              <MappingFragment StoreEntitySet="Сотрудник">
+                <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+                <ScalarProperty Name="Фамилия" ColumnName="Фамилия" />
+                <ScalarProperty Name="Имя" ColumnName="Имя" />
+                <ScalarProperty Name="Отчество" ColumnName="Отчество" />
+                <ScalarProperty Name="кодСтепень" ColumnName="кодСтепень" />
+                <ScalarProperty Name="кодДолжность" ColumnName="кодДолжность" />
+                <ScalarProperty Name="кодФакультет" ColumnName="кодФакультет" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Степень">
+            <EntityTypeMapping TypeName="iBooksModel.Степень">
+              <MappingFragment StoreEntitySet="Степень">
+                <ScalarProperty Name="кодСтепень" ColumnName="кодСтепень" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Аббревиатура" ColumnName="Аббревиатура" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Страна">
+            <EntityTypeMapping TypeName="iBooksModel.Страна">
+              <MappingFragment StoreEntitySet="Страна">
+                <ScalarProperty Name="кодСтрана" ColumnName="кодСтрана" />
+                <ScalarProperty Name="На_английском" ColumnName="На английском" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Полное" ColumnName="Полное" />
+                <ScalarProperty Name="Alpha2" ColumnName="Alpha2" />
+                <ScalarProperty Name="Alpha3" ColumnName="Alpha3" />
+                <ScalarProperty Name="ISO" ColumnName="ISO" />
+                <ScalarProperty Name="Часть_света" ColumnName="Часть света" />
+                <ScalarProperty Name="Расположение" ColumnName="Расположение" />
+                <ScalarProperty Name="Флаг" ColumnName="Флаг" />
+                <ScalarProperty Name="Флаг_1" ColumnName="Флаг 1" />
+                <ScalarProperty Name="Флаг_2" ColumnName="Флаг 2" />
+                <ScalarProperty Name="URL" ColumnName="URL" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ТипИсточника">
+            <EntityTypeMapping TypeName="iBooksModel.ТипИсточника">
+              <MappingFragment StoreEntitySet="ТипИсточника">
+                <ScalarProperty Name="кодИсточник" ColumnName="кодИсточник" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Аббревиатура" ColumnName="Аббревиатура" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ТипТекста">
+            <EntityTypeMapping TypeName="iBooksModel.ТипТекста">
+              <MappingFragment StoreEntitySet="ТипТекста">
+                <ScalarProperty Name="КодТипа" ColumnName="КодТипа" />
+                <ScalarProperty Name="Название_текста" ColumnName="Название текста" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Учреждение">
+            <EntityTypeMapping TypeName="iBooksModel.Учреждение">
+              <MappingFragment StoreEntitySet="Учреждение">
+                <ScalarProperty Name="кодУчреждение" ColumnName="кодУчреждение" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Аббревиаткра" ColumnName="Аббревиаткра" />
+                <ScalarProperty Name="кодГорода" ColumnName="кодГорода" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Факультет">
+            <EntityTypeMapping TypeName="iBooksModel.Факультет">
+              <MappingFragment StoreEntitySet="Факультет">
+                <ScalarProperty Name="кодФакультет" ColumnName="кодФакультет" />
+                <ScalarProperty Name="шифрФакультет" ColumnName="шифрФакультет" />
+                <ScalarProperty Name="Наименование" ColumnName="Наименование" />
+                <ScalarProperty Name="Аббревиатура" ColumnName="Аббревиатура" />
+                <ScalarProperty Name="Записал" ColumnName="Записал" />
+                <ScalarProperty Name="датаЗаписал" ColumnName="датаЗаписал" />
+                <ScalarProperty Name="Исправил" ColumnName="Исправил" />
+                <ScalarProperty Name="датаИсправил" ColumnName="датаИсправил" />
+                <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="По умолчанию" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram DiagramId="8301b010ad3a489f8b5b18883e50074d" Name="Diagram1">
+        <EntityTypeShape EntityType="iBooksModel.Абзац" Width="1.5" PointX="12.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Глава" Width="1.5" PointX="8.25" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Город" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Должность" Width="1.5" PointX="3.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Издательство" Width="1.5" PointX="3.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Иллюстрация" Width="1.5" PointX="15" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Кафедра" Width="1.5" PointX="3" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Кафедра_Сотрудник" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Отчет" Width="1.5" PointX="3.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Публикация_Сотрудник" Width="1.5" PointX="11.25" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Публикция" Width="1.5" PointX="6" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Раздел" Width="1.5" PointX="10.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Сотрудник" Width="1.5" PointX="6" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Степень" Width="1.5" PointX="3.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Страна" Width="1.5" PointX="1.5" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.ТипИсточника" Width="1.5" PointX="3.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.ТипТекста" Width="1.5" PointX="12.75" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Учреждение" Width="1.5" PointX="0.75" PointY="10.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="iBooksModel.Факультет" Width="1.5" PointX="0.75" PointY="6.25" IsExpanded="true" />
+        <AssociationConnector Association="iBooksModel.Абзац_РазделАбзац" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Иллюстрация_АбзацИллюстрация" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Глава_ПубликцияГлава" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Иллюстрация_ГлаваИллюстрация" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Раздел_ГлаваРаздел" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Город_СтранаГород" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикция_ГородПубликция" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Сотрудник_ДолжностьСотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикция_ИздательствоПубликция" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Иллюстрация_РазделИллюстрация" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Иллюстрация_ТипТекстаИллюстрация" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Кафедра_УчреждениеКафедра" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Кафедра_ФакультетКафедра" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Кафедра_Сотрудник_КафедраКафедра_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Кафедра_Сотрудник_СотрудникКафедра_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикция_ОтчетПубликция" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикация_Сотрудник_ПубликцияПубликация_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикация_Сотрудник_СотрудникПубликация_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикция_ТипИсточникаПубликция" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Публикция_УчреждениеПубликция" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Сотрудник_СтепеньСотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="iBooksModel.Сотрудник_ФакультетСотрудник" ManuallyRouted="false" />
+      </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>
