@@ -28,8 +28,12 @@ Partial Public Class MainForm
 
     Private Sub windowsUIViewMain_FlyoutHidden(sender As Object, e As FlyoutResultEventArgs) Handles windowsUIViewMain.FlyoutHidden
         If e.Result = System.Windows.Forms.DialogResult.OK Then
-            'MsgBox("Проверка пользователя...")
-            MsgBox(String.Format("_ucLogin.ComboBoxEditPerson.Text = {0}, _ucLogin.TextEditPassport.Text = {1}", _ucLogin.ComboBoxEditPerson.Text, _ucLogin.TextEditPassport.Text))
+            'MsgBox("")
+            MsgBox(String.Format("Проверка пользователя :{0}_ucLogin.ComboBoxEditPerson.Text = {1}, _ucLogin.TextEditPassport.Text = {2}",
+                                 Chr(13), _ucLogin.ComboBoxEditPerson.Text, _ucLogin.TextEditPassport.Text))
+            'If Trim(_ucLogin.ComboBoxEditPerson.Text) = "" AndAlso Trim(_ucLogin.TextEditPassport.Text) = "sandozik" Then
+
+            'End If
         Else
             Application.Exit()
         End If
